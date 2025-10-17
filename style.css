@@ -1,0 +1,303 @@
+/* --- 基本設定 --- */
+:root {
+    --text-color: #6c5f54;
+    /* 基本の文字色 */
+    /* 背景色 */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'せのびゴシック', 'Noto Sans JP', sans-serif;
+    color: var(--text-color);
+    margin: 0;
+}
+
+/* --- ヒーローヘッダー --- */
+#hero {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-images {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.hero-image.active {
+    opacity: 1;
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    letter-spacing: 0.1em;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    letter-spacing: 0.2em;
+}
+
+/* --- 固定ナビゲーション --- */
+#fixed-nav {
+    position: fixed;
+    top: 30px;
+    right: 40px;
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s, visibility 0.5s;
+}
+
+#fixed-nav.is-visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+#fixed-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+#fixed-nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 1.1rem;
+    padding: 5px 15px;
+    transition: opacity 0.3s ease;
+}
+
+#fixed-nav a:hover {
+    opacity: 0.6;
+}
+
+/* --- セクション共通 --- */
+section {
+    padding: 100px 5%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+#works-title {
+    padding-bottom: 0;
+}
+
+#about {
+    padding-top: 120px;
+}
+
+h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+/* --- Worksセクション --- */
+.work-item {
+    display: flex;
+    align-items: center;
+    gap: 5%;
+    /* margin-bottom: 120px; を削除（各セクションのpaddingで調整） */
+}
+
+.work-item.reverse {
+    flex-direction: row-reverse;
+}
+
+.work-item .work-image {
+    flex: 1.2;
+}
+
+.work-item .work-text {
+    flex: 1;
+}
+
+.work-text h3 {
+    font-size: 1.8rem;
+}
+
+.work-text p {
+    line-height: 1.8;
+    margin: 20px 0;
+}
+
+.see-more {
+    color: var(--text-color);
+    text-decoration: none;
+    display: inline-block;
+    /* アニメーションのために追加 */
+    transition: transform 0.3s ease;
+    /* 0.3秒かけて滑らかに変化させる */
+}
+
+.see-more:hover {
+    transform: scale(1.15);
+    /* マウスが乗ったら1.1倍の大きさに拡大 */
+}
+
+/* --- Aboutセクション --- */
+.about-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.about-icon {
+    width: 180px;
+    height: 180px;
+}
+
+.about-text h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.about-text .sub-name {
+    font-size: 1rem;
+}
+
+.about-text p {
+    line-height: 1.8;
+}
+
+.about-text p span {
+    font-weight: bold;
+    display: block;
+    margin-top: 1rem;
+}
+
+/* --- フッター --- */
+#footer {
+    text-align: center;
+    padding: 40px 0;
+    border-top: 1px solid #eee;
+}
+
+/* --- トップに戻るボタン --- */
+#back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--text-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s, visibility 0.5s;
+}
+
+#back-to-top.is-visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* --- 動画制作セクションのスライダー --- */
+#work-video .work-image {
+    overflow: hidden;
+    height: 480px;
+    display: flex;
+}
+
+#work-video .image-slider {
+    animation: vertical-marquee 20s linear infinite;
+}
+
+#work-video .image-slider img {
+    width: 100%;
+    height: auto;
+    display: block;
+    padding-bottom: 15px;
+}
+
+@keyframes vertical-marquee {
+    0% {
+        transform: translateY(-50%);
+        /* ← 変更：半分上に移動した状態からスタート */
+    }
+
+    100% {
+        transform: translateY(0);
+        /* ← 変更：元の位置に戻るようにゴール */
+    }
+}
+
+/* --- スマホ用レスポンシブ設定 --- */
+@media (max-width: 768px) {
+
+    .work-item,
+    .work-item.reverse {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .work-item .work-image {
+        margin-bottom: 20px;
+    }
+}
+
+/*============ Custom Cursor =============*/
+body,
+a,
+.see-more {
+    cursor: none;
+}
+
+.cursor-outline {
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+
+    /* 通常時の円の大きさ */
+    width: 20px;
+    height: 20px;
+    background-color: rgba(108, 95, 84, 0.3);
+
+    /* 大きさが変わる時のアニメーション設定 */
+    transition: width 0.3s ease, height 0.3s ease;
+}
+
+/* JSによってこのクラスが付くと円が大きくなる */
+.cursor-outline.is-hovering {
+    width: 50px;
+    height: 50px;
+}

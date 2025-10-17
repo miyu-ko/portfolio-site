@@ -1,0 +1,126 @@
+/* --- 基本設定 --- */
+:root {
+    --text-color: #6c5f54;
+    --bg-color: #fcfcfc;
+}
+
+body {
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: 2rem;
+    font-family: 'せのびゴシック', 'Noto Sans JP', sans-serif;
+    /* フォントを合わせる */
+}
+
+
+/* --- 固定ナビゲーション（ここから追加） --- */
+#fixed-nav {
+    position: fixed;
+    top: 30px;
+    right: 40px;
+    z-index: 100;
+}
+
+#fixed-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+#fixed-nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 1.1rem;
+    padding: 5px 15px;
+    transition: opacity 0.3s ease;
+}
+
+#fixed-nav a:hover {
+    opacity: 0.6;
+}
+
+
+/* --- グリッドコンテナ --- */
+.banner-grid {
+    columns: 2;
+    gap: 80px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* --- グリッドアイテム --- */
+.banner-item {
+    display: block;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    break-inside: avoid;
+    margin-bottom: 80px;
+}
+
+.banner-item:hover {
+    transform: translateY(-5px);
+}
+
+.banner-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* --- スマホ用レスポンシブ設定 --- */
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+
+    #fixed-nav {
+        top: 15px;
+        right: 15px;
+    }
+
+    #fixed-nav a {
+        font-size: 0.9rem;
+        padding: 4px 10px;
+    }
+
+    .banner-grid {
+        columns: 1;
+    }
+}
+
+/*============ Custom Cursor =============*/
+body,
+a,
+.see-more {
+    cursor: none;
+}
+
+.cursor-outline {
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+
+    /* 通常時の円の大きさ */
+    width: 20px;
+    height: 20px;
+    background-color: rgba(108, 95, 84, 0.3);
+
+    /* 大きさが変わる時のアニメーション設定 */
+    transition: width 0.3s ease, height 0.3s ease;
+}
+
+/* JSによってこのクラスが付くと円が大きくなる */
+.cursor-outline.is-hovering {
+    width: 50px;
+    height: 50px;
+}

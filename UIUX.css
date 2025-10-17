@@ -1,0 +1,184 @@
+/* --- 基本設定 --- */
+:root {
+    --text-color: #6c5f54;
+    --bg-color: #fcfcfc;
+}
+
+body {
+    font-family: 'せのびゴシック', 'Noto Sans JP', sans-serif;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: 3rem 0;
+    /* 上下の余白を調整 */
+}
+
+
+/* --- 固定ナビゲーション --- */
+#fixed-nav {
+    position: fixed;
+    top: 30px;
+    right: 40px;
+    z-index: 100;
+}
+
+#fixed-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+#fixed-nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 1.1rem;
+    padding: 5px 15px;
+    transition: opacity 0.3s ease;
+}
+
+#fixed-nav a:hover {
+    opacity: 0.6;
+}
+
+/* --- UI/UX ギャラリー --- */
+.uiux-gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 80px;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+.uiux-item {
+    text-align: center;
+    padding: 30px;
+    width: 100%;
+    max-width: 800px;
+}
+
+.uiux-item a {
+    position: relative;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    overflow: hidden;
+}
+
+.uiux-item img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.uiux-item a:hover img {
+    transform: scale(1.03);
+}
+
+/* --- TAPオーバーレイ --- */
+.tap-overlay {
+    position: absolute;
+    /* ↓↓ ここから変更 ↓↓ */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* 上下左右中央に配置 */
+    width: 120px;
+    /* 円の幅 */
+    height: 120px;
+    /* 円の高さ */
+    border-radius: 50%;
+    /* 正円にする */
+    /* ↑↑ ここまで変更 ↑↑ */
+
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.uiux-item a:hover .tap-overlay {
+    opacity: 1;
+}
+
+/* --- 戻るリンク --- */
+.back-link-container {
+    text-align: center;
+    margin-top: 5rem;
+}
+
+.back-link {
+    color: var(--text-color);
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.back-link:hover {
+    transform: scale(1.1);
+}
+
+
+/* --- スマホ用レスポンシブ設定 --- */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+        margin-top: 80px;
+    }
+
+    .uiux-gallery {
+        gap: 50px;
+    }
+
+    #fixed-nav {
+        top: 15px;
+        right: 15px;
+    }
+
+    #fixed-nav a {
+        font-size: 0.9rem;
+        padding: 4px 10px;
+    }
+
+    .tap-overlay {
+        width: 90px;
+        height: 90px;
+        font-size: 1.5rem;
+    }
+}
+
+/*============ Custom Cursor =============*/
+body,
+a,
+.see-more {
+    cursor: none;
+}
+
+.cursor-outline {
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    width: 20px;
+    height: 20px;
+    background-color: rgba(108, 95, 84, 0.3);
+    transition: width 0.3s ease, height 0.3s ease;
+}
+
+.cursor-outline.is-hovering {
+    width: 50px;
+    height: 50px;
+}

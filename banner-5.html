@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>job</title>
+    <style>
+        /* 簡単なスタイル */
+        body {
+            font-family: 'せのびゴシック', 'Noto Sans JP', sans-serif;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        img {
+            max-width: 80%;
+            height: auto;
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: #6c5f54;
+            display: inline-block;
+            /* アニメーションのために追加 */
+            transition: transform 0.3s ease;
+            /* 0.3秒かけて滑らかに変化させる */
+        }
+
+        a:hover {
+            transform: scale(1.1);
+        }
+
+        /*============ Custom Cursor =============*/
+        body,
+        a,
+        .see-more {
+            cursor: none;
+        }
+
+        .cursor-outline {
+            pointer-events: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            border-radius: 50%;
+            opacity: 0;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+
+            /* 通常時の円の大きさ */
+            width: 20px;
+            height: 20px;
+            background-color: rgba(108, 95, 84, 0.3);
+
+            /* 大きさが変わる時のアニメーション設定 */
+            transition: width 0.3s ease, height 0.3s ease;
+        }
+
+        /* JSによってこのクラスが付くと円が大きくなる */
+        .cursor-outline.is-hovering {
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cursor-outline"></div>
+
+    <img src="images/バナー5.png" alt="求人バナー">
+    <br>
+    <a href="banner.html">一覧に戻る</a>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

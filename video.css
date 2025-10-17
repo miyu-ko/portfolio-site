@@ -1,0 +1,219 @@
+/* --- 基本設定 --- */
+:root {
+    --text-color: #6c5f54;
+    --bg-color: #fcfcfc;
+}
+
+body {
+    font-family: 'せのびゴシック', 'Noto Sans JP', sans-serif;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: 3rem 0;
+}
+
+/* --- 固定ナビゲーション --- */
+#fixed-nav {
+    position: fixed;
+    top: 30px;
+    right: 40px;
+    z-index: 100;
+}
+
+#fixed-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+#fixed-nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 1.1rem;
+    padding: 5px 15px;
+    transition: all 0.3s;
+}
+
+#fixed-nav a:hover {
+    opacity: 0.7;
+}
+
+/* --- 動画コンテンツ --- */
+.video-container {
+    max-width: 960px;
+    margin: 80px auto;
+    padding: 0 5%;
+    text-align: center;
+}
+
+
+.video-container .description {
+    margin-bottom: 3rem;
+}
+
+.video-wrapper {
+    margin-top: 50px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.work-video-links {
+    text-align: center;
+    margin: 6rem 0;
+    /* 上下の余白は調整してください */
+}
+
+.video-page-link {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #6c5f54;
+    /* video.css の文字色に合わせました */
+    text-decoration: none;
+    margin: 0 80px;
+    display: inline-block;
+    /* transform を効かせるため */
+    transition: transform 0.3s ease;
+}
+
+.video-page-link:hover {
+    transform: scale(1.15);
+    /* 1.15倍に拡大 */
+}
+
+/* --- Making Of Photo Strip --- */
+.making-of-gallery {
+    margin-top: 8rem;
+    text-align: center;
+}
+
+.making-of-gallery h3 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+}
+
+.photo-strip-wrapper {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+
+}
+
+
+.photo-strip-wrapper::before {
+    left: 0;
+    background: linear-gradient(to right, var(--bg-color), transparent);
+}
+
+.photo-strip-wrapper::after {
+    right: 0;
+    background: linear-gradient(to left, var(--bg-color), transparent);
+}
+
+.photo-strip {
+    display: flex;
+    width: calc(200px * 22);
+    animation: horizontal-scroll 120s linear infinite;
+    opacity: 0.8;
+}
+
+.photo-strip.row1 {
+    margin-bottom: 70px;
+    /* 1列目と2列目の間の隙間 */
+}
+
+.photo-strip.row2 {
+    /* 2列目は逆方向にスクロール */
+    animation-direction: reverse;
+}
+
+.photo-strip img {
+    height: 150px;
+    width: auto;
+    margin: 0 10px;
+    box-shadow: 0 7px 10px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes horizontal-scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* --- 戻るリンク --- */
+.back-link-container {
+    text-align: center;
+    margin-top: 6rem;
+}
+
+.back-link {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.back-link:hover {
+    transform: scale(1.2);
+}
+
+/* --- カスタムカーソル --- */
+body,
+a,
+.see-more {
+    cursor: none;
+}
+
+.cursor-outline {
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    width: 30px;
+    height: 30px;
+    background-color: rgba(108, 95, 84, 0.3);
+    transition: width 0.3s ease, height 0.3s ease;
+}
+
+.cursor-outline.is-hovering {
+    width: 50px;
+    height: 50px;
+}
+
+/* --- スマホ用レスポンシブ設定 --- */
+@media (max-width: 768px) {
+    body {
+        padding-top: 1rem;
+        padding-bottom: 2rem;
+    }
+
+    .video-container h1 {
+        font-size: 2rem;
+        margin-top: 80px;
+    }
+
+    #fixed-nav {
+        top: 15px;
+        right: 15px;
+    }
+
+    #fixed-nav a {
+        font-size: 0.9rem;
+        padding: 4px 10px;
+    }
+}

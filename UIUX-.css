@@ -1,0 +1,148 @@
+/* --- 基本設定 --- */
+:root {
+    --text-color: #6c5f54;
+    --bg-color: #fcfcfc;
+}
+
+body {
+    font-family: 'せのびゴシック', 'Noto Sans JP', sans-serif;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: 3rem 0;
+    overflow-x: hidden;
+    /* ページ全体の横スクロールを防止 */
+}
+
+/* --- 固定ナビゲーション (変更なし) --- */
+#fixed-nav {
+    position: fixed;
+    top: 30px;
+    right: 40px;
+    z-index: 100;
+}
+
+#fixed-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+#fixed-nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 1.1rem;
+    padding: 5px 15px;
+    transition: opacity 0.3s ease;
+    /* 0.3秒かけて滑らかに変化させる */
+
+}
+
+#fixed-nav a:hover {
+    opacity: 0.6;
+}
+
+/* --- 画像ギャラリー (ここから変更) --- */
+.image-gallery {
+    display: flex;
+    /* flex-direction は row (横並び) がデフォルト */
+    overflow-x: auto;
+    /* ★横にはみ出た部分をスクロールさせる */
+    gap: 30px;
+    /* 画像間の横の隙間 */
+    max-width: 100%;
+    /* 横幅の制限を解除 */
+    margin: 0;
+    padding: 25px 5%;
+    /* 左右に少し余白を持たせる */
+    -webkit-overflow-scrolling: touch;
+    /* スマホでの慣性スクロールを滑らかに */
+    scrollbar-width: none;
+    /* Firefoxでスクロールバーを隠す */
+}
+
+/* Chrome, Safariでスクロールバーを隠す */
+.image-gallery::-webkit-scrollbar {
+    display: none;
+}
+
+.gallery-item {
+    padding: 15px;
+    width: 80%;
+    /* ★各画像の幅を指定 (画面幅の80%) */
+    flex-shrink: 0;
+    /* ★画像がコンテナに合わせて縮むのを防ぐ */
+}
+
+.gallery-item img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 6px;
+}
+
+.back-link-container {
+    text-align: center;
+}
+
+.back-link {
+    color: var(--text-color);
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.back-link:hover {
+    transform: scale(1.1);
+}
+
+/* --- カスタムカーソル (変更なし) --- */
+body,
+a {
+    cursor: none;
+}
+
+.cursor-outline {
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    width: 20px;
+    height: 20px;
+    background-color: rgba(108, 95, 84, 0.3);
+    transition: width 0.3s ease, height 0.3s ease;
+}
+
+.cursor-outline.is-hovering {
+    width: 50px;
+    height: 50px;
+}
+
+/* --- スマホ用レスポンシブ設定 (変更なし) --- */
+@media (max-width: 768px) {
+    body {
+        padding-top: 1rem;
+        padding-bottom: 2rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+        margin-top: 80px;
+    }
+
+    #fixed-nav {
+        top: 15px;
+        right: 15px;
+    }
+
+    #fixed-nav a {
+        font-size: 0.9rem;
+        padding: 4px 10px;
+    }
+}

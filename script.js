@@ -68,3 +68,26 @@ interactiveElements.forEach(el => {
         cursorOutline.classList.remove('is-hovering');
     });
 });
+
+// ↓↓ このコードをJSファイル、もしくは</body>の直前に追記してください ↓↓
+
+// 監視対象となる要素をすべて取得
+const targets = document.querySelectorAll('.fade-in');
+
+// 要素が画面内に入ったかどうかを判定するコールバック関数
+const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        // 画面内に入った場合
+        if (entry.isIntersecting) {
+            // is-visibleクラスを付与
+            entry.target.classList.add('is-visible');
+            // 監視を停止（一度表示されたらアニメーションは繰り返さない）
+            observer.unobserve(entry.target);
+        }
+    });
+});
+
+// 各要素の監視を開始
+targets.forEach(target => {
+    observer.observe(target);
+});

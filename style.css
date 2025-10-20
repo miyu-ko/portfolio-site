@@ -346,14 +346,6 @@ h2 {
         overflow: hidden;
     }
 
-    /* 作品画像の箱の高さを少し小さくする */
-    #work-banner .work-image,
-    #work-uiux .work-image,
-    #work-video .work-image {
-        height: 180px;
-        /* ← 230pxから少し小さめに */
-        overflow: hidden;
-    }
 
     /* 画像のスケールを少し抑える */
     .work-item .work-image img {

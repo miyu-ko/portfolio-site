@@ -293,7 +293,7 @@ h2 {
     }
 
     section {
-        padding: 30px 12%;
+        padding: 30px 10%;
     }
 
     .hero-text {
@@ -355,11 +355,6 @@ h2 {
         text-align: center;
     }
 
-    /* 画像の箱の高さを決める */
-    #work-video .work-image {
-        height: 230px;
-    }
-
     /* PC用の回転スライダーを「非表示」にする */
     #work-video .image-slider {
         display: none;
@@ -373,7 +368,6 @@ h2 {
     .work-item .work-image {
         height: 300px;
         overflow: hidden;
-        transform: scale(0.6);
     }
 
 

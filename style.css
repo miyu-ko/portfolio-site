@@ -373,6 +373,7 @@ h2 {
     .work-item .work-image {
         height: 300px;
         overflow: hidden;
+        transform: scale(0.6);
     }
 
 

@@ -366,7 +366,8 @@ h2 {
     }
 
     .work-item .work-image {
-        height: 300px;
+        height: auto;
+        /* ← 300px から auto に変更 */
         overflow: hidden;
     }
 
@@ -374,8 +375,7 @@ h2 {
     /* 画像のスケールを少し抑える */
     .work-item .work-image img {
         width: 100%;
-        height: 100%;
-        object-fit: cover;
+        height: auto;
         transform: scale(0.6);
         /* ← 少しだけ縮小 */
     }

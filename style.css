@@ -119,7 +119,7 @@ h2 {
 }
 
 #about h2 {
-    margin-bottom: 70px;
+    margin-bottom: 60px;
 }
 
 /* --- Worksセクション --- */
@@ -271,10 +271,20 @@ h2 {
 }
 
 /* --- スマホ用レスポンシブ設定 --- */
-@media (max-width: 768px) {
+@media screen and (min-width: 480px) {
+    body {
+        font-family: 'せのびゴシック', 'Noto Sans JP', sans-serif;
+        color: var(--text-color);
+        margin: 0;
+    }
+
+    section {
+        padding: 30px 17%;
+    }
+
     .hero-text {
         h1 {
-            font-size: 2.2rem;
+            font-size: 1.8rem;
         }
 
         p {
@@ -288,6 +298,7 @@ h2 {
     }
 
     #fixed-nav a {
+        font-weight: bold;
         font-size: 0.8rem;
     }
 
@@ -308,6 +319,10 @@ h2 {
         /* お好みの大きさに調整 */
         line-height: 1.6;
         /* 行間を少し調整 */
+    }
+
+    .about-text .sub-name {
+        font-size: 0.8rem;
     }
 
     /* 「わたしについて」の自己紹介文 */
@@ -342,7 +357,7 @@ h2 {
     }
 
     .work-item .work-image {
-        height: 230px;
+        height: 300px;
         overflow: hidden;
     }
 
@@ -354,10 +369,6 @@ h2 {
         object-fit: cover;
         transform: scale(0.8);
         /* ← 少しだけ縮小 */
-    }
-
-    .about-section {
-        padding: 80px 18%;
     }
 
 

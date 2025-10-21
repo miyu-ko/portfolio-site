@@ -196,7 +196,7 @@ a,
 }
 
 /* --- スマホ用レスポンシブ設定 --- */
-@media (max-width: 768px) {
+@media screen and (max-width: 480px) {
     body {
         padding-top: 1rem;
         padding-bottom: 2rem;
@@ -208,7 +208,7 @@ a,
     }
 
     #fixed-nav {
-        top: 15px;
+        top: 25px;
         right: 15px;
     }
 

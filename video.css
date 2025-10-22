@@ -216,4 +216,14 @@ a,
         font-size: 0.9rem;
         padding: 4px 10px;
     }
+
+    #work-video .work-image {
+        height: 150px;
+    }
+
+    #work-video .work-image img {
+        transform: scale(0.9);
+        /* ← 画像全体を少し縮小 */
+    }
+
 }
